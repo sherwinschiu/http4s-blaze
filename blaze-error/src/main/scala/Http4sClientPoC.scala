@@ -31,7 +31,7 @@ object Http4sClientPoC extends LazyLogging {
 
     val _ = clientResource
       .use { client =>
-        val workers: Seq[Task[List[Unit]]] = (1 to 10).map { _ =>
+        val workers: Seq[Task[List[Unit]]] = (1 to 10).map { n =>
           for {
             work <- Task
               .traverse(20 to 1000 toList) { x =>
@@ -39,8 +39,7 @@ object Http4sClientPoC extends LazyLogging {
                   .onErrorRestart(5)
                   .executeOn(clientScheduler)
                   .asyncBoundary(global)
-//                  .asyncBoundary(clientScheduler)
-              //                  .logTimed(s"worker $n job $x")
+              //  .logTimed(s"worker $n job $x")
               }
           } yield {
             work
