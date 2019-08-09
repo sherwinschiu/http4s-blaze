@@ -1,0 +1,21 @@
+## IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VSCode
+.vs/
+.vscode/
+
+## Mac
+.DS_Store
+
+## Sbt
+## Only ignore sub-directories below project/
+*/project/
+
+## Scala
+target/
+*.class
+*.sc
