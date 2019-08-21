@@ -18,11 +18,7 @@ object LoggingPoC extends LazyLogging {
         .flatMap { _ =>
           Task
             .traverse(0 to 1000 toList) { x =>
-              Task
-                .eval {
-                  logger.info(s"worker $n, task $x")
-                }
-                .flatMap(_ => Task.sleep(1 second))
+              Task(logger.info(s"worker $n, task $x"))
             }
         }
         .executeWithOptions(_.enableLocalContextPropagation)

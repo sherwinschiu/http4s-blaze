@@ -2,8 +2,8 @@ lazy val sl4jVersion = "1.7.26"
 lazy val typeSafeLoggingVersion = "3.9.0"
 lazy val logbackVersion = "1.0.13"
 lazy val catsVersion = "1.6.1"
-lazy val catsEffectVersion = "1.3.1"
-lazy val monixVersion = "3.0.0-RC3"
+lazy val catsEffectVersion = "1.3.0"
+lazy val monixVersion = "3.0.0-RC2"
 
 lazy val root = (project in file("."))
   .settings(
